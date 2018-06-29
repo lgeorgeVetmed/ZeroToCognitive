@@ -29,6 +29,7 @@ exports.tts_synthesize = function(req, res) {
     // this can be avoided by testing req.query to see if it has any text in it
     // that would be a good exercise to extend this code
     var transcript = ttsConfig.synthesize(req.query);
+	console.log(req.query);
     transcript.on('response', function(response) {
       if (req.query.download) {
         response.headers['content-disposition'] = 'attachment; filename=transcript.ogg';
